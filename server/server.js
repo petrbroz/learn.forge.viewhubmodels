@@ -29,9 +29,9 @@ app.set('port', process.env.PORT || 3000); // main port
 // cookie-based session
 var cookieSession = require('cookie-session')
 app.use(cookieSession({
-    name: 'forgesession',
-    keys: ['forgesecurekey'],
-    secure: (process.env.NODE_ENV == 'production'),
+    name: 'forge-gltf-converter-session',
+    keys: [process.env.SESSION_SECRET],
+    //secure: (process.env.NODE_ENV == 'production'),
     maxAge: 14 * 24 * 60 * 60 * 1000 // 14 days, same as refresh token
 }))
 
