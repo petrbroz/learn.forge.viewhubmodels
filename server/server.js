@@ -23,6 +23,7 @@ var app = express();
 
 // prepare server routing
 app.use('/', express.static(__dirname + '/../www')); // redirect static calls
+app.use('/preview', express.static(__dirname + '/../preview')); // serve temporary gltf translations from 'preview' folder
 app.set('port', process.env.PORT || 3000); // main port
 
 // cookie-based session
@@ -42,6 +43,7 @@ loadRoute('./modelderivative1');
 // view hub models sample
 loadRoute('./datamanagement');
 loadRoute('./user');
+loadRoute('./gltf');
 
 function loadRoute(path) {
     try {
